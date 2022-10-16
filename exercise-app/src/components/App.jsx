@@ -2,36 +2,37 @@ import '../App.css';
 import Tab from "./Tab";
 import Accordion from "./Accordion";
 import { useState } from "react";
+import Exercises from "../Exercises";
 
 function App() {
 
+  const [exercise, setExercise] = useState(Exercises);
 
+  //console.log(exercise);
 
-  const [exercise, addExercise] = useState([
-    { index: 1, title: "Exercise 1", desc: "This is Exercise 1 description" },
-    { index: 2, title: "Exercise 2", desc: "This is Exercise 2 description" }
-  ])
-
-  console.log(exercise);
-
+  function addExercise() {
+    let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
+    setExercise(exercise => [...exercise, newExercise]);
+  }
 
   return (
     <div>
-      {exercise.map((item, index) => {
-        return (
-          <Accordion
-            key={index}
-            title={item.title}
-            desc={item.desc}
-          />
-        )
-      })}
-
-
+      <Tab
+        container=
+        {exercise.map((item, index) => {
+          return (
+            <Accordion
+              key={index}
+              title={item.title}
+              desc={item.desc}
+            />
+          )
+        })}
+      />
+      <button onClick={addExercise}>Add Exercise</button>
     </div>
+
   );
-
-
 }
 
 export default App;

@@ -12,8 +12,12 @@ function UncontrolledExample(props) {
             className="mb-3"
         >
             <Tab eventKey="home" title="Home">
-                <Container />
+                {props.container}
             </Tab>
+            <Tab eventKey="home2" title="Home2">
+                Tab 2
+            </Tab>
+
         </Tabs>
     );
 }

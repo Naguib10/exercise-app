@@ -3,13 +3,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from "./Accordion";
 
-function ContainerExample() {
+function ContainerExample(props) {
     return (
         <Container>
             <Row>
-                <Accordion />
-                <Accordion />
-
+                {props.accordion}
             </Row>
         </Container>
     );
