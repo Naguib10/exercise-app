@@ -1,8 +1,10 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
+import Container from "./Container";
 
-function UncontrolledExample() {
+
+function UncontrolledExample(props) {
     return (
         <Tabs
             defaultActiveKey="profile"
@@ -10,7 +12,7 @@ function UncontrolledExample() {
             className="mb-3"
         >
             <Tab eventKey="home" title="Home">
-                <p>this is where you should put a container</p>
+                <Container />
             </Tab>
         </Tabs>
     );
