@@ -7,8 +7,8 @@ import Exercises from "../Exercises";
 function App() {
 
   const [exercise, setExercise] = useState([]);
+  //const days = [{ id: 0, title: "Mond" }, { id: 1, title: "Tues" }];
 
-  //console.log(exercise);
 
   function addExercise() {
     let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div>
+
       <Tab
         content=
         {exercise.map((item, index) => {
@@ -29,6 +30,7 @@ function App() {
           )
         })}
       />
+
       <button onClick={addExercise}>Add Exercise</button>
     </div>
 

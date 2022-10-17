@@ -4,22 +4,30 @@ import Tabs from 'react-bootstrap/Tabs';
 import Container from "./Container";
 
 
-function UncontrolledExample(props) {
+function CreateTab(props) {
+
+    const days = [{ id: 0, title: "Mond", content: props.content }, { id: 1, title: "Tues", content: props.content }];
+
     return (
         <Tabs
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3"
         >
-            <Tab eventKey={props.index} title={props.title}>
-                {props.content}
-            </Tab>
+            {days.map((item, index) => {
+                return (
+                    <Tab eventKey={index} title={item.title}>
+                        {item.content}
+                    </Tab>
+                )
+            })}
+
             {/* <Tab eventKey="home2" title="Home2">
-                Tab 2
+                {props.content}
             </Tab> */}
 
         </Tabs>
     );
 }
 
-export default UncontrolledExample;
+export default CreateTab;
