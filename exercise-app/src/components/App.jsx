@@ -6,7 +6,7 @@ import Exercises from "../Exercises";
 
 function App() {
 
-  const [exercise, setExercise] = useState(Exercises);
+  const [exercise, setExercise] = useState([]);
 
   //console.log(exercise);
 
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Tab
-        container=
+        content=
         {exercise.map((item, index) => {
           return (
             <Accordion
