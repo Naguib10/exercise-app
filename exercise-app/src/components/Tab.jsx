@@ -6,25 +6,22 @@ import Container from "./Container";
 
 function CreateTab(props) {
 
-    const days = [{ id: 0, title: "Mond", content: props.content }, { id: 1, title: "Tues", content: props.content }];
+    //const days = [{ id: 0, title: "Mond", content: props.content }, { id: 1, title: "Tues", content: props.content }];
+
+    function handleTabChange(enteredDay) {
+
+    }
 
     return (
         <Tabs
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3"
+            onSelect={props.handleTabChange}
         >
-            {days.map((item, index) => {
-                return (
-                    <Tab eventKey={index} title={item.title}>
-                        {item.content}
-                    </Tab>
-                )
-            })}
-
-            {/* <Tab eventKey="home2" title="Home2">
+            <Tab eventKey={props.index} title={props.title}>
                 {props.content}
-            </Tab> */}
+            </Tab>
 
         </Tabs>
     );
