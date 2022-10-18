@@ -7,7 +7,10 @@ import Exercises from "../Exercises";
 function App() {
 
   const [exercise, setExercise] = useState([]);
-  const [days, setDay] = useState(["Monday"]);
+  const [days, setDay] = useState([
+    { index: 1, title: "Monday" },
+    { index: 2, title: "Tuesday" },
+  ]);
 
 
   function addExercise() {
@@ -19,8 +22,6 @@ function App() {
     setDay(titleTab);
   }
 
-
-
   return (
     <div>
       {days.map((item, index) => {
@@ -28,14 +29,13 @@ function App() {
           <Tab
             key={index}
             title={item.title}
-            onChange={handleTabChange}
             content=
-            {exercise.map((item, index) => {
+            {exercise.map((exercise, indexx) => {
               return (
                 <Accordion
-                  key={index}
-                  title={item.title}
-                  desc={item.desc}
+                  key={indexx}
+                  title={exercise.title}
+                  desc={exercise.desc}
                 />
               )
             })}

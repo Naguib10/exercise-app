@@ -17,7 +17,6 @@ function CreateTab(props) {
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3"
-            onSelect={props.handleTabChange}
         >
             <Tab eventKey={props.index} title={props.title}>
                 {props.content}
