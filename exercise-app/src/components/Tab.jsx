@@ -11,7 +11,10 @@ function UncontrolledExample(props) {
             id="uncontrolled-tab-example"
             className="mb-3"
         >
-            <Tab eventKey={props.index} title={props.title}>
+            <Tab eventKey="1" title="Monday">
+                {props.content}
+            </Tab>
+            <Tab eventKey="2" title="Tuesday">
                 {props.content}
             </Tab>
             {/* <Tab eventKey="home2" title="Home2">
