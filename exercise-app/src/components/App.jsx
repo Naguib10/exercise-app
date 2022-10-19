@@ -6,45 +6,56 @@ import Exercises from "../Exercises";
 
 function App() {
 
-  const [exercise, setExercise] = useState([]);
-  const [days, setDay] = useState([
-    { index: 1, title: "Monday" },
-    { index: 2, title: "Tuesday" },
-  ]);
+  const [exerciseMon, setExerciseMon] = useState([Exercises]);
+  const [exerciseTues, setExerciseTues] = useState([]);
+  const [day, setDay] = useState([]);
+  const days = [{ id: 0, title: "Monday" }, { id: 1, title: "Tuesday" }];
 
 
-  function addExercise() {
+  function addExerciseMon() {
     let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
-    setExercise(exercise => [...exercise, newExercise]);
+    setExerciseMon(exerciseMon => [...exerciseMon, newExercise]);
   }
 
-  function handleTabChange(titleTab) {
-    setDay(titleTab);
+  function addExerciseTues() {
+    let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
+    setExerciseTues(exerciseTues => [...exerciseTues, newExercise]);
   }
 
   return (
     <div>
-      {days.map((item, index) => {
-        return (
-          <Tab
-            key={index}
-            title={item.title}
-            content=
-            {exercise.map((exercise, indexx) => {
-              return (
-                <Accordion
-                  key={indexx}
-                  title={exercise.title}
-                  desc={exercise.desc}
-                />
-              )
-            })}
-          />
-        )
-      })}
+
+      <Tab
+        key={days.id}
+        monContent=
+        {exerciseMon.map((item, index) => {
+          return (
+            <div>
+              <Accordion
+                key={index}
+                title={item.title}
+                desc={item.desc}
+              />
+              <button onClick={addExerciseMon}>Add Exercise</button>
+            </div>
+          )
+        })}
+        tuesContent=
+        {exerciseTues.map((item, index) => {
+          return (
+            <div>
+              <Accordion
+                key={index}
+                title={item.title}
+                desc={item.desc}
+              />
+              <button onClick={addExerciseTues}>Add Exercise</button>
+            </div>
+          )
+        })}
+      />
 
 
-      <button onClick={addExercise}>Add Exercise</button>
     </div>
 
   );

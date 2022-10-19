@@ -8,18 +8,18 @@ function CreateTab(props) {
 
     //const days = [{ id: 0, title: "Mond", content: props.content }, { id: 1, title: "Tues", content: props.content }];
 
-    function handleTabChange(enteredDay) {
-
-    }
 
     return (
         <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey={props.index}
             id="uncontrolled-tab-example"
             className="mb-3"
         >
-            <Tab eventKey={props.index} title={props.title}>
-                {props.content}
+            <Tab eventKey={"1"} title="Monday">
+                {props.monContent}
+            </Tab>
+            <Tab eventKey="2" title="Tuesday">
+                {props.tuesContent}
             </Tab>
 
         </Tabs>
