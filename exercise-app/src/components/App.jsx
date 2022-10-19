@@ -6,30 +6,30 @@ import Exercises from "../Exercises";
 
 function App() {
 
-  const [exercise, setExercise] = useState([]);
+  // const [exercise, setExercise] = useState([]);
 
-  //console.log(exercise);
+  // //console.log(exercise);
 
-  function addExercise() {
-    let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
-    setExercise(exercise => [...exercise, newExercise]);
-  }
+  // function addExercise() {
+  //   let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
+  //   setExercise(exercise => [...exercise, newExercise]);
+  // }
 
   return (
     <div>
       <Tab
-        content=
-        {exercise.map((item, index) => {
-          return (
-            <Accordion
-              key={index}
-              title={item.title}
-              desc={item.desc}
-            />
-          )
-        })}
+      // content=
+      // {exercise.map((item, index) => {
+      //   return (
+      //     <Accordion
+      //       key={index}
+      //       title={item.title}
+      //       desc={item.desc}
+      //     />
+      //   )
+      // })}
       />
-      <button onClick={addExercise}>Add Exercise</button>
+      {/* <button onClick={addExercise}>Add Exercise</button> */}
     </div>
 
   );
