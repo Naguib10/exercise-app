@@ -2,7 +2,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useState } from "react";
 import Accordion from "./Accordion";
-import Form from "./Form";
+import Modal from "./Modal";
 import Button from 'react-bootstrap/Button';
 
 import Container from "./Container";
@@ -54,15 +54,15 @@ function UncontrolledExample(props) {
                             />
                         )
                     })}
-                    <Button variant="primary" onClick={() => setModalShow(true)}>
+                    {/* <Button variant="primary" onClick={() => setModalShow(true)}>
                         Add Monday
-                    </Button>
-                    <Form
+                    </Button> */}
+                    <Modal
                         show={modalShow}
                         onHide={() => setModalShow(false)}
                     />
                 </Tab>
-                <button onClick={addMonEx}>Add Monday</button>
+                {/* <button onClick={addMonEx}>Add Monday</button> */}
                 <Tab eventKey="2" title="Tuesday">
                     {exerciseTues.map((item, index) => {
                         return (
@@ -75,6 +75,7 @@ function UncontrolledExample(props) {
                     })}
                     <button onClick={addTuesEx}>Add Tuesday</button>
                 </Tab>
+
 
             </Tabs>
 
