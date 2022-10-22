@@ -13,6 +13,21 @@ function UncontrolledExample(props) {
     const [exerciseMon, setMon] = useState([]);
     const [exerciseTues, setTues] = useState([]);
 
+    const [days, setDays] = useState([
+        {
+            id: 1, dayName: 'Saturday', dayData: [
+                { dayDataId: 1, title: "Exercise 3", desc: "This is Exercise 3 description" },
+                { dayDataId: 2, title: "Exercise 3", desc: "This is Exercise 3 description" }
+            ]
+        },
+        {
+            id: 2, dayName: 'Sunday', dayData: [
+                { dayDataId: 3, title: "Exercise 4", desc: "This is Exercise 4 description" },
+                { dayDataId: 4, title: "Exercise 4", desc: "This is Exercise 4 description" }
+            ]
+        }
+    ])
+
 
     const [open, setIsOpen] = useState(false);
 
@@ -35,6 +50,15 @@ function UncontrolledExample(props) {
         setTues(exerciseTues => [...exerciseTues, newExercise]);
     }
 
+    function addDay() {
+        let newExercise = { index: 3, title: "Exercise 3", desc: "This is Exercise 3 description" };
+        setTues(exerciseTues => [...exerciseTues, newExercise]);
+    }
+
+
+
+
+
 
 
     return (
@@ -44,37 +68,28 @@ function UncontrolledExample(props) {
                 id="uncontrolled-tab-example"
                 className="mb-3"
             >
-                <Tab eventKey="1" title="Monday">
-                    {exerciseMon.map((item, index) => {
-                        return (
-                            <Accordion
-                                key={index}
-                                title={item.title}
-                                desc={item.desc}
+                {days.map((day, dayIndex) => {
+                    return (
+                        <Tab eventKey={dayIndex} title={day.dayName}>
+                            return (
+                            {day.dayData.map((dayDataItem, dayDataIndex) => {
+                                return (
+                                    <Accordion
+                                        key={dayDataIndex}
+                                        title={dayDataItem.title}
+                                        desc={dayDataItem.desc}
+                                    />
+                                )
+                            })}
+                            )
+                            <Modal
+                                show={modalShow}
+                                onHide={() => setModalShow(false)}
                             />
-                        )
-                    })}
-                    {/* <Button variant="primary" onClick={() => setModalShow(true)}>
-                        Add Monday
-                    </Button> */}
-                    <Modal
-                        show={modalShow}
-                        onHide={() => setModalShow(false)}
-                    />
-                </Tab>
-                {/* <button onClick={addMonEx}>Add Monday</button> */}
-                <Tab eventKey="2" title="Tuesday">
-                    {exerciseTues.map((item, index) => {
-                        return (
-                            <Accordion
-                                key={index}
-                                title={item.title}
-                                desc={item.desc}
-                            />
-                        )
-                    })}
-                    <button onClick={addTuesEx}>Add Tuesday</button>
-                </Tab>
+                        </Tab>
+                    )
+                })}
+
 
 
             </Tabs>
