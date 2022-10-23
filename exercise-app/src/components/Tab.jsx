@@ -13,7 +13,7 @@ function UncontrolledExample(props) {
     const [exerciseMon, setMon] = useState([]);
     const [exerciseTues, setTues] = useState([]);
 
-    const [days, setDays] = useState([
+    const [days, setDay] = useState([
         {
             id: 1, dayName: 'Saturday', dayData: [
                 { dayDataId: 1, title: "Exercise 3", desc: "This is Exercise 3 description" },
@@ -55,6 +55,16 @@ function UncontrolledExample(props) {
         setTues(exerciseTues => [...exerciseTues, newExercise]);
     }
 
+    function saveDay() {
+        let newDay = {
+            id: 3, dayName: 'Monday', dayData: [
+                { dayDataId: 6, title: "Exercise 5", desc: "This is Exercise 5 description" },
+                { dayDataId: 7, title: "Exercise 5", desc: "This is Exercise 5 description" }
+            ]
+        };
+        setDay(prevState => [...prevState, newDay]);
+    }
+
 
 
 
@@ -70,8 +80,7 @@ function UncontrolledExample(props) {
             >
                 {days.map((day, dayIndex) => {
                     return (
-                        <Tab eventKey={dayIndex} title={day.dayName}>
-                            return (
+                        <Tab eventKey={dayIndex} title={day.dayName} key={dayIndex}>
                             {day.dayData.map((dayDataItem, dayDataIndex) => {
                                 return (
                                     <Accordion
@@ -81,11 +90,11 @@ function UncontrolledExample(props) {
                                     />
                                 )
                             })}
-                            )
                             <Modal
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                             />
+                            <button className='btn btn-primary' onClick={saveDay}>hamada</button>
                         </Tab>
                     )
                 })}
