@@ -3,11 +3,35 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function Example() {
+function Example(props) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [exercise, setExercise] = useState({
+        title: "",
+        description: ""
+    });
+
+    function handleChange(event) {
+        const { exercise, value } = event.target;
+        setExercise(prevState => {
+            return {
+                ...prevState,
+                [exercise]: value
+            }
+        })
+    }
+
+    function addExercise(event) {
+        props.onAdd(exercise);
+        setExercise({
+            title: "",
+            description: ""
+        })
+        //event.preventDefault();
+    }
 
     return (
         <>
@@ -25,6 +49,8 @@ function Example() {
                             <Form.Label>Exercise Name</Form.Label>
                             <Form.Control
                                 //type="email"
+                                value={props.title}
+                                onChange={handleChange}
                                 placeholder="For example, 'Bench Press'"
                                 autoFocus
                             />
@@ -42,7 +68,7 @@ function Example() {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={addExercise}>
                         Save Changes
                     </Button>
                 </Modal.Footer>

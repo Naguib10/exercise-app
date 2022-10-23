@@ -28,9 +28,19 @@ function UncontrolledExample(props) {
 
     const [modalShow, setModalShow] = useState(false);
 
-    function onClickAddItem(id) {
+    function addExercise(exercise) {
+        let newExercise = {
+            title: exercise.title,
+            description: exercise.description
+        }
+        console.log(exercise);
+        console.log(newExercise);
+        return newExercise;
+    }
 
+    function onClickAddItem(id) {
         let newItem = { dayDataId: 5, title: "Exercise 5", desc: "This is Exercise 5 description" };
+        //let newItem = addExercise();
 
         days[id].dayData.push(newItem);
         //console.log(days);
@@ -41,7 +51,6 @@ function UncontrolledExample(props) {
         //     const newH = prevData[id].dayData.push(newItem);
         //     return [...prevData, newH]
         // });
-
 
 
         // setDay(
@@ -75,6 +84,7 @@ function UncontrolledExample(props) {
                                 )
                             })}
                             <Modal
+                                onAdd={addExercise}
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                             />
