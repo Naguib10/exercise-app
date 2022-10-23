@@ -33,12 +33,22 @@ function UncontrolledExample(props) {
         let newItem = { dayDataId: 5, title: "Exercise 5", desc: "This is Exercise 5 description" };
 
         days[id].dayData.push(newItem);
-        console.log(days[id].dayData);
+        //console.log(days);
+
+        setDay((prevData) => [...prevData]);
+
+        // setDay(prevData => {
+        //     const newH = prevData[id].dayData.push(newItem);
+        //     return [...prevData, newH]
+        // });
+
+
 
         // setDay(
         //     (prevState) => ({
+        //         ...prevState,
         //         dayData: {
-        //             ...prevState.dayData, newItem
+        //             ...prevState[id].dayData, newItem
         //         }
         //     })
         // )
