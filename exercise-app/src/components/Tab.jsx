@@ -26,26 +26,41 @@ function UncontrolledExample(props) {
     ])
     //const [open, setIsOpen] = useState(false);
 
+    const [newExercise, setNewExercise] = useState({
+        title: "",
+        desc: ""
+    });
+
     const [modalShow, setModalShow] = useState(false);
 
     function addExercise(exercise) {
-        let newExercise = {
-            title: exercise.title,
-            description: exercise.description
-        }
-        console.log(exercise);
-        console.log(newExercise);
+
+
+        setNewExercise(exercise);
+
+        //console.log(newExercise);
+
         return newExercise;
+        // let newExercise = {
+        //     title: exercise.title,
+        //     description: exercise.description
+        // }
+        // console.log(exercise);
+        // console.log(newExercise);
+        // return newExercise;
     }
 
     function onClickAddItem(id) {
-        let newItem = { dayDataId: 5, title: "Exercise 5", desc: "This is Exercise 5 description" };
-        //let newItem = addExercise();
+        //let newItem = { dayDataId: 5, title: "Exercise 5", desc: "This is Exercise 5 description" };
+        let newItem = addExercise();
 
         days[id].dayData.push(newItem);
-        //console.log(days);
+        //console.log(newItem);
+        console.log(days);
 
         setDay((prevData) => [...prevData]);
+
+
 
         // setDay(prevData => {
         //     const newH = prevData[id].dayData.push(newItem);
@@ -87,8 +102,11 @@ function UncontrolledExample(props) {
                                 onAdd={addExercise}
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
+                                title={newExercise.title}
+                                desc={newExercise.desc}
                             />
                             <button className='btn btn-primary' onClick={() => onClickAddItem(dayIndex)}>hamada</button>
+
                         </Tab>
                     )
                 })}

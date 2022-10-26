@@ -9,26 +9,35 @@ function Example(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [exercise, setExercise] = useState({
+    // const [exercise, setExercise] = useState({
+    //     title: "",
+    //     description: ""
+    // });
+
+    const [newExercise, setNewExercise] = useState({
         title: "",
-        description: ""
+        desc: ""
     });
 
     function handleChange(event) {
-        const { exercise, value } = event.target;
-        setExercise(prevState => {
+        const { name, value } = event.target;
+        //const title = event.target.value;
+
+        setNewExercise(prevState => {
             return {
                 ...prevState,
-                [exercise]: value
-            }
+                [name]: value
+                //title
+            };
         })
+        // console.log(name);
     }
 
-    function addExercise(event) {
-        props.onAdd(exercise);
-        setExercise({
+    function addExercise() {
+        props.onAdd(newExercise);
+        setNewExercise({
             title: "",
-            description: ""
+            desc: ""
         })
         //event.preventDefault();
     }
@@ -49,8 +58,12 @@ function Example(props) {
                             <Form.Label>Exercise Name</Form.Label>
                             <Form.Control
                                 //type="email"
-                                value={props.title}
+
                                 onChange={handleChange}
+                                name="title"
+                                value={newExercise.title}
+                                desc={props.desc}
+
                                 placeholder="For example, 'Bench Press'"
                                 autoFocus
                             />
