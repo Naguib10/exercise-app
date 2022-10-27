@@ -10,15 +10,19 @@ function UncontrolledExample(props) {
 
     const [days, setDay] = useState([
         {
-            id: 1, dayName: 'Saturday', dayData: [
+            id: 0, dayName: 'Monday', dayData: [
                 { title: "Exercise 3", desc: "This is Exercise 3 description" },
                 { title: "Exercise 3", desc: "This is Exercise 3 description" }
             ]
         },
         {
-            id: 2, dayName: 'Sunday', dayData: [
+            id: 1, dayName: 'Tuesday', dayData: [
                 { dayDataId: 3, title: "Exercise 4", desc: "This is Exercise 4 description" },
                 { dayDataId: 4, title: "Exercise 4", desc: "This is Exercise 4 description" }
+            ]
+        },
+        {
+            id: 2, dayName: 'Wednesday', dayData: [
             ]
         }
     ])

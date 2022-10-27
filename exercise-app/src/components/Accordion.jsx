@@ -7,6 +7,7 @@ function BasicExample(props) {
                 <Accordion.Header>{props.title}</Accordion.Header>
                 <Accordion.Body>
                     {props.desc}
+                    <button>delete</button>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
