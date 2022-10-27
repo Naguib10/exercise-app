@@ -9,11 +9,6 @@ function Example(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // const [exercise, setExercise] = useState({
-    //     title: "",
-    //     description: ""
-    // });
-
     const [newExercise, setNewExercise] = useState({
         title: "",
         desc: ""
@@ -21,31 +16,28 @@ function Example(props) {
 
     function handleChange(event) {
         const { name, value } = event.target;
-        //const title = event.target.value;
 
         setNewExercise(prevState => {
             return {
                 ...prevState,
                 [name]: value
-                //title
             };
         })
-        // console.log(name);
     }
 
     function addExercise() {
-        props.onAdd(newExercise);
+        props.onAdd(newExercise, props.dayId);
         setNewExercise({
             title: "",
             desc: ""
         })
-        //event.preventDefault();
+        handleClose();
     }
 
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Add Monday
+                Add Exercise
             </Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -62,7 +54,7 @@ function Example(props) {
                                 onChange={handleChange}
                                 name="title"
                                 value={newExercise.title}
-                                desc={props.desc}
+                                //desc={props.desc}
 
                                 placeholder="For example, 'Bench Press'"
                                 autoFocus
@@ -73,7 +65,12 @@ function Example(props) {
                             controlId="exampleForm.ControlTextarea1"
                         >
                             <Form.Label>Exercise Description</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
+                                onChange={handleChange}
+                                name="desc"
+                                value={newExercise.desc} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>

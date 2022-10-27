@@ -5,16 +5,14 @@ import Accordion from "./Accordion";
 import Modal from "./Modal";
 import Button from 'react-bootstrap/Button';
 
-import Container from "./Container";
-
 
 function UncontrolledExample(props) {
 
     const [days, setDay] = useState([
         {
             id: 1, dayName: 'Saturday', dayData: [
-                { dayDataId: 1, title: "Exercise 3", desc: "This is Exercise 3 description" },
-                { dayDataId: 2, title: "Exercise 3", desc: "This is Exercise 3 description" }
+                { title: "Exercise 3", desc: "This is Exercise 3 description" },
+                { title: "Exercise 3", desc: "This is Exercise 3 description" }
             ]
         },
         {
@@ -33,51 +31,17 @@ function UncontrolledExample(props) {
 
     const [modalShow, setModalShow] = useState(false);
 
-    function addExercise(exercise) {
-
-
+    function addExercise(exercise, id) {
         setNewExercise(exercise);
-
-        //console.log(newExercise);
-
-        return newExercise;
-        // let newExercise = {
-        //     title: exercise.title,
-        //     description: exercise.description
-        // }
-        // console.log(exercise);
-        // console.log(newExercise);
-        // return newExercise;
-    }
-
-    function onClickAddItem(id) {
-        //let newItem = { dayDataId: 5, title: "Exercise 5", desc: "This is Exercise 5 description" };
-        let newItem = addExercise();
-
-        days[id].dayData.push(newItem);
-        //console.log(newItem);
-        console.log(days);
-
+        days[id].dayData.push(exercise);
         setDay((prevData) => [...prevData]);
-
-
-
-        // setDay(prevData => {
-        //     const newH = prevData[id].dayData.push(newItem);
-        //     return [...prevData, newH]
-        // });
-
-
-        // setDay(
-        //     (prevState) => ({
-        //         ...prevState,
-        //         dayData: {
-        //             ...prevState[id].dayData, newItem
-        //         }
-        //     })
-        // )
-
     }
+
+    // function onClickAddItem(id) {
+    //     days[id].dayData.push(newExercise);
+    //     console.log(newExercise);
+    //     setDay((prevData) => [...prevData]);
+    // }
 
     return (
         <div>
@@ -100,12 +64,13 @@ function UncontrolledExample(props) {
                             })}
                             <Modal
                                 onAdd={addExercise}
+                                dayId={dayIndex}
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                                 title={newExercise.title}
                                 desc={newExercise.desc}
                             />
-                            <button className='btn btn-primary' onClick={() => onClickAddItem(dayIndex)}>hamada</button>
+                            {/* <button className='btn btn-primary' onClick={() => onClickAddItem(dayIndex)}>hamada</button> */}
 
                         </Tab>
                     )
