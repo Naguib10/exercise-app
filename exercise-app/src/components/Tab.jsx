@@ -10,20 +10,25 @@ function UncontrolledExample(props) {
 
     const [days, setDay] = useState([
         {
-            id: 0, dayName: 'Monday', dayData: [
-                { title: "Exercise 3", desc: "This is Exercise 3 description" },
-                { title: "Exercise 3", desc: "This is Exercise 3 description" }
-            ]
+            id: 0, dayName: 'Monday', dayData: []
         },
         {
-            id: 1, dayName: 'Tuesday', dayData: [
-                { dayDataId: 3, title: "Exercise 4", desc: "This is Exercise 4 description" },
-                { dayDataId: 4, title: "Exercise 4", desc: "This is Exercise 4 description" }
-            ]
+            id: 1, dayName: 'Tuesday', dayData: []
         },
         {
-            id: 2, dayName: 'Wednesday', dayData: [
-            ]
+            id: 2, dayName: 'Wednesday', dayData: []
+        },
+        {
+            id: 3, dayName: 'Thursday', dayData: []
+        },
+        {
+            id: 4, dayName: 'Friday', dayData: []
+        },
+        {
+            id: 5, dayName: 'Saturday', dayData: []
+        },
+        {
+            id: 6, dayName: 'Sunday', dayData: []
         }
     ])
     //const [open, setIsOpen] = useState(false);
@@ -82,6 +87,7 @@ function UncontrolledExample(props) {
                             {/* <button className='btn btn-primary' onClick={() => onClickAddItem(dayIndex)}>hamada</button> */}
 
                         </Tab>
+
                     )
                 })}
 

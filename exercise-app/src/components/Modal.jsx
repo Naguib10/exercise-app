@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Select from './Select';
 
 function Example(props) {
     const [show, setShow] = useState(false);
@@ -45,6 +46,7 @@ function Example(props) {
                     <Modal.Title>Add Exercise</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Exercise Name</Form.Label>
@@ -59,6 +61,10 @@ function Example(props) {
                                 placeholder="For example, 'Bench Press'"
                                 autoFocus
                             />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
+                            <Form.Label>Exercise Type</Form.Label>
+                            <Select />
                         </Form.Group>
                         <Form.Group
                             className="mb-3"
