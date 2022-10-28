@@ -41,11 +41,13 @@ function UncontrolledExample(props) {
         setDay((prevData) => [...prevData]);
     }
 
-    // function onClickAddItem(id) {
-    //     days[id].dayData.push(newExercise);
-    //     console.log(newExercise);
-    //     setDay((prevData) => [...prevData]);
-    // }
+    function deleteExercise(dayId, exerciseId) {
+        days[dayId].dayData.splice(exerciseId, 1);
+        setDay((prevData) => [...prevData]);
+        console.log(dayId);
+        console.log(exerciseId);
+    }
+
 
     return (
         <div>
@@ -61,8 +63,11 @@ function UncontrolledExample(props) {
                                 return (
                                     <Accordion
                                         key={dayDataIndex}
+                                        id={dayDataIndex}
+                                        day={dayIndex}
                                         title={dayDataItem.title}
                                         desc={dayDataItem.desc}
+                                        onDelete={deleteExercise}
                                     />
                                 )
                             })}
