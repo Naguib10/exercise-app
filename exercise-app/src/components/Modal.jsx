@@ -20,8 +20,6 @@ function Example(props) {
         emoji: emoji
     });
 
-
-
     function handleSelection(event) {
         emoji = event.target.value;
         newExercise.emoji = emoji;
@@ -37,8 +35,6 @@ function Example(props) {
             };
         })
     }
-
-
 
     function addExercise() {
         props.onAdd(newExercise, emoji, props.dayId);

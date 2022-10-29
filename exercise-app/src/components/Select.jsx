@@ -9,8 +9,6 @@ function SelectBasicExample(props) {
             <Form.Control
                 as="select"
                 onChange={props.onChange}
-            //value={props.value}
-
             >
                 <option></option>
                 <option value="💪">💪Upper body exercise</option>

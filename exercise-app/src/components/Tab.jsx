@@ -41,8 +41,6 @@ function UncontrolledExample(props) {
         emoji: ""
     });
 
-
-
     const [modalShow, setModalShow] = useState(false);
 
     function addExercise(exercise, emoji, id) {
@@ -50,20 +48,12 @@ function UncontrolledExample(props) {
         setNewExercise(exercise);
         days[id].dayData.push(exercise);
         setDay((prevData) => [...prevData]);
-
     }
 
     function deleteExercise(dayId, exerciseId) {
         days[dayId].dayData.splice(exerciseId, 1);
         setDay((prevData) => [...prevData]);
     }
-
-    function addEmoji(selectedEmoji) {
-        setEmoji(selectedEmoji);
-        //return emoji;
-        //console.log(selectedEmoji);
-    }
-
 
     return (
         <div>
