@@ -1,12 +1,22 @@
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 
-function SelectBasicExample() {
+function SelectBasicExample(props) {
+
+
     return (
-        <Form.Select aria-label="Default select example">
-            <option></option>
-            <option value="1">Upper</option>
-            <option value="2">Lower</option>
-        </Form.Select>
+        <Form.Group aria-label="Default select example">
+            <Form.Control
+                as="select"
+                onChange={props.onChange}
+            //value={props.value}
+
+            >
+                <option></option>
+                <option value="💪">💪Upper body exercise</option>
+                <option value="🦵">🦵Lower body exercise</option>
+            </Form.Control>
+        </Form.Group>
     );
 }
 

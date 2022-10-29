@@ -10,10 +10,22 @@ function Example(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //const [emoji, setEmoji] = useState("");
+
+    var emoji = "";
+
     const [newExercise, setNewExercise] = useState({
         title: "",
-        desc: ""
+        desc: "",
+        emoji: emoji
     });
+
+
+
+    function handleSelection(event) {
+        emoji = event.target.value;
+        newExercise.emoji = emoji;
+    }
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -26,11 +38,14 @@ function Example(props) {
         })
     }
 
+
+
     function addExercise() {
-        props.onAdd(newExercise, props.dayId);
+        props.onAdd(newExercise, emoji, props.dayId);
         setNewExercise({
             title: "",
-            desc: ""
+            desc: "",
+            emoji: ""
         })
         handleClose();
     }
@@ -56,7 +71,6 @@ function Example(props) {
                                 onChange={handleChange}
                                 name="title"
                                 value={newExercise.title}
-                                //desc={props.desc}
 
                                 placeholder="For example, 'Bench Press'"
                                 autoFocus
@@ -64,7 +78,9 @@ function Example(props) {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                             <Form.Label>Exercise Type</Form.Label>
-                            <Select />
+                            <Select
+                                onChange={handleSelection}
+                            />
                         </Form.Group>
                         <Form.Group
                             className="mb-3"

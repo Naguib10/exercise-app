@@ -33,24 +33,35 @@ function UncontrolledExample(props) {
     ])
     //const [open, setIsOpen] = useState(false);
 
+    const [emoji, setEmoji] = useState('');
+
     const [newExercise, setNewExercise] = useState({
         title: "",
-        desc: ""
+        desc: "",
+        emoji: ""
     });
+
+
 
     const [modalShow, setModalShow] = useState(false);
 
-    function addExercise(exercise, id) {
+    function addExercise(exercise, emoji, id) {
+        setEmoji(emoji);
         setNewExercise(exercise);
         days[id].dayData.push(exercise);
         setDay((prevData) => [...prevData]);
+
     }
 
     function deleteExercise(dayId, exerciseId) {
         days[dayId].dayData.splice(exerciseId, 1);
         setDay((prevData) => [...prevData]);
-        console.log(dayId);
-        console.log(exerciseId);
+    }
+
+    function addEmoji(selectedEmoji) {
+        setEmoji(selectedEmoji);
+        //return emoji;
+        //console.log(selectedEmoji);
     }
 
 
@@ -73,6 +84,7 @@ function UncontrolledExample(props) {
                                         title={dayDataItem.title}
                                         desc={dayDataItem.desc}
                                         onDelete={deleteExercise}
+                                        selectEmoji={dayDataItem.emoji}
                                     />
                                 )
                             })}

@@ -9,10 +9,10 @@ function BasicExample(props) {
     return (
         <Accordion defaultActiveKey={props.index}>
             <Accordion.Item eventKey={props.index}>
-                <Accordion.Header>{props.title}</Accordion.Header>
+                <Accordion.Header>{props.selectEmoji} {props.title}</Accordion.Header>
                 <Accordion.Body>
                     {props.desc}
-                    <button className='btn btn-secondary' onClick={handleClick}>Remove</button>
+                    <button className='btn btn-danger float-end align-top' onClick={handleClick}>Remove</button>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
