@@ -29,12 +29,27 @@ function Example(props) {
         const { name, value } = event.target;
 
         setNewExercise(prevState => {
+            console.log(name);
+            console.log({
+                ...prevState,
+                [name]: value
+            });
             return {
                 ...prevState,
                 [name]: value
             };
         })
     }
+
+    const hamada = { id: "", fname: "", lname: "" }
+
+    var gdeed = hamada.fname;
+
+    var gedeeed = hamada["fname"];
+
+    var x = "fname";
+
+    var geddeeed3 = hamada[x];
 
     function addExercise() {
         props.onAdd(newExercise, emoji, props.dayId);
