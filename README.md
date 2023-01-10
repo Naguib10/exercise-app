@@ -2,7 +2,7 @@
 
 # Exercise App
 
-An app for saving daily routine body exercises for different days and adding short descriptions and choosing categories for each example.
+An app for saving daily routine body exercises for different days and adding short descriptions and choosing categories for each exercise.
 
 ## Description
 
